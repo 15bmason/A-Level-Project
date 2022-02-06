@@ -10,7 +10,7 @@
               {{ note.data }}
             </div>
             <div class="flip-card-back">
-              {{ note.data }}
+              {{ note.answer }}
               <button type="button" class="close" onClick="deleteNote({{ note.id }})">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -22,7 +22,7 @@
     </ul>
     <form method="POST">
       <textarea name="note" id="note" placeholder="Enter your question here." class="form-control"></textarea>
-      <textarea name="note" id="note" placeholder="Enter your answer here." class="form-control"></textarea>
+      <textarea name="ans" id="ans" placeholder="Enter your answer here." class="form-control"></textarea>
       <br />
       <div align="center">
         <button type="submit" class="btn btn-primary">Add Note</button>
