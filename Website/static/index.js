@@ -6,3 +6,12 @@ function deleteNote(noteId) {
       window.location.href = "/";
     });
   }
+
+function show_pwd(){
+  var x = document.getElementById("password");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}

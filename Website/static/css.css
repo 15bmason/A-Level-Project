@@ -69,10 +69,6 @@ button.close{
     transform: rotateY(180deg);
   }
 
-  .navbar {
-    transition: all 0.4s;
-}
-
 .navbar .nav-link {
     color: #fff;
 }
