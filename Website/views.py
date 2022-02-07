@@ -35,3 +35,4 @@ def delete_note():
             db.session.commit()
 
     return jsonify({})
+

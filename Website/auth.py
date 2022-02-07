@@ -8,6 +8,11 @@ from flask_login import login_user, login_required, logout_user, current_user
 
 auth = Blueprint("auth", __name__)
 
+@auth.route("/settings", methods=["GET", "POST"])
+@login_required
+def settings():
+    return render_template("settings.html", user=current_user)
+
 @auth.route("/login", methods=["Get", "POST"])
 def login():
     if request.method == "POST":

@@ -27,6 +27,7 @@ button.close{
 .flip-card {
     background-color: transparent;
     height: 225px;
+    perspective: 1500px;
   }
   
   /* This container is needed to position the front and back side */
@@ -58,9 +59,9 @@ button.close{
   
   /* Style the front side (fallback if image is missing) */
   .flip-card-front {
-    background-color: #45ADA8;
+    background-color: #478d88;
     color: black;
-    border-color: #45ADA8;
+    border-color: #478d88;
   }
   
   /* Style the back side */
@@ -119,4 +120,8 @@ button.close{
 
 .text-small {
     font-size: 0.9rem !important;
+}
+
+.dropdown{
+  margin-top: 2.5%;
 }
