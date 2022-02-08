@@ -1,19 +1,36 @@
 {% extends "base.html" %} {% block title %}Settings{% endblock %}
 {% block content %}
 
+    <div class="container">
+        <div class="row">
+            <div class="col-lg">
+                <a>This changes the colour scheme</a>
+            </div>
+                <div class="col-sm">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown button
+                    </button>
 
-    <div class="dropdown">
-        <a>This changes the colour scheme</a>
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Dropdown button
-        </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" onclick="change_scheme()">First</a>
+                    <a class="dropdown-item" onclick="change_scheme()">Second</a>
+                    <a class="dropdown-item" onclick="change_scheme()">Third</a>
+                </div>
+            </div>
 
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" onclick="">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="#">Something else here</a>
-    </div>
-
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-lg">
+                <a>Change your password</a>
+            </div>
+            <div class="col-sm">
+                <button class="btn btn-primary change-pwd-button" type="button" id="changePwdButton">
+                    Click
+                </button> 
+            </div>
+        </div>
     </div>
 
 {% endblock %}
