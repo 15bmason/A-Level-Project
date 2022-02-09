@@ -1,10 +1,11 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
     %}
-    <h1 align="center" class="title">Flashcards</h1>
+    <br />
     <ul class="list-group list-group-flush" id="notes">
-      {% set x = user.notes %}
+      <div class="row">
+      {% set x = user.notes[:4] %}
       {% for note in x %}
-      <li class="list-group-item">
+      <div class="col-3">
         <div class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">
@@ -18,9 +19,11 @@
             </div>
           </div>
         </div>
-      </li>
+      </div>
       {% endfor %}
+    </div>
     </ul>
+    <br />
     <form method="POST">
       <textarea name="note" id="note" placeholder="Enter your question here." class="form-control"></textarea>
       <textarea name="ans" id="ans" placeholder="Enter your answer here." class="form-control"></textarea>
