@@ -13,6 +13,11 @@ auth = Blueprint("auth", __name__)
 def settings():
     return render_template("settings.html", user=current_user)
 
+@auth.route("/page1", methods=["Get", "POST"])
+@login_required
+def page1():
+    return render_template("page1.html", user=current_user)    
+
 @auth.route("/login", methods=["Get", "POST"])
 def login():
     if request.method == "POST":

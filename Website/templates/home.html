@@ -2,7 +2,8 @@
     %}
     <h1 align="center" class="title">Flashcards</h1>
     <ul class="list-group list-group-flush" id="notes">
-      {% for note in user.notes %}
+      {% set x = user.notes[:2] %}
+      {% for note in x %}
       <li class="list-group-item">
         <div class="flip-card">
           <div class="flip-card-inner">
@@ -24,9 +25,26 @@
       <textarea name="note" id="note" placeholder="Enter your question here." class="form-control"></textarea>
       <textarea name="ans" id="ans" placeholder="Enter your answer here." class="form-control"></textarea>
       <br />
-      <div align="center">
-        <button type="submit" class="btn btn-primary">Add Note</button>
+    </div>
+    <div class="container dropdown-submit">
+      <div class="row justify-content-center">
+        <div class="col-3 dropdown-column">
+          <button class="btn btn-primary dropdown-toggle settings-btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Category
+          </button>
+
+          <div class="dropdown-menu drop-menu" aria-labelledby="dropdownMenuButton">
+              <button class="dropdown-item btn btn-primary" type="submit"><div align="center"><a>All</a></div></button>
+          </div>
+        </div>
       </div>
+    </div>
     </form>
+    <br />
+    <div class="container container-arrows">
+      <a href="/" class="previous round">&#8249;</a>
+      <a href="/page1" class="next round">&#8250;</a>
+    </div> 
+    <br />
 
     {% endblock %}

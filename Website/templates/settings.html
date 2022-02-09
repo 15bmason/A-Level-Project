@@ -1,14 +1,15 @@
 {% extends "base.html" %} {% block title %}Settings{% endblock %}
 {% block content %}
 
-    <div class="container">
+    <div class="container settings-container">
+        <br />
         <div class="row">
-            <div class="col-lg">
+            <div class="col-10">
                 <a>This changes the colour scheme</a>
             </div>
-                <div class="col-sm">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown button
+                <div class="col">
+                    <button class="btn btn-primary dropdown-toggle settings-btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Schemes
                     </button>
 
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -17,20 +18,36 @@
                     <a class="dropdown-item" onclick="change_scheme()">Third</a>
                 </div>
             </div>
-
-            </div>
         </div>
         <br />
         <div class="row">
-            <div class="col-lg">
+            <div class="col-10">
                 <a>Change your password</a>
             </div>
-            <div class="col-sm">
-                <button class="btn btn-primary change-pwd-button" type="button" id="changePwdButton">
+            <div class="col btn-column">
+                <button class="btn btn-primary change-pwd-button settings-btn" type="button" id="changePwdButton">
                     Click
                 </button> 
             </div>
         </div>
+        <br />
+        <div class="row">
+            <div class="col-10">
+                <a>Number of flashcards shown</a>
+            </div>
+            <div class="col">
+                <button class="btn btn-primary dropdown-toggle settings-btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Number
+                </button>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" onclick="number_shown(1)">1 Card</a>
+                <a class="dropdown-item" onclick="number_shown(2)">2 Cards</a>
+                <a class="dropdown-item" onclick="number_shown(3)">3 Cards</a>
+                <a class="dropdown-item" onclick="number_shown(4)">4 cards</a>
+            </div>
+        </div>
+        <br />
     </div>
 
 {% endblock %}

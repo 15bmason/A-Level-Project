@@ -27,3 +27,8 @@ function show_pwd_signup(){
       y.type = "password";
     }
   }
+
+function number_shown(){
+  var x = document.getElementById("")
+  window.location.href("/")
+}
