@@ -2,7 +2,7 @@
     %}
     <h1 align="center" class="title">Flashcards</h1>
     <ul class="list-group list-group-flush" id="notes">
-      {% set x = user.notes[:2] %}
+      {% set x = user.notes %}
       {% for note in x %}
       <li class="list-group-item">
         <div class="flip-card">
@@ -32,9 +32,9 @@
           <button class="btn btn-primary dropdown-toggle settings-btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Category
           </button>
-
           <div class="dropdown-menu drop-menu" aria-labelledby="dropdownMenuButton">
-              <button class="dropdown-item btn btn-primary" type="submit"><div align="center"><a>All</a></div></button>
+              <button class="dropdown-item btn btn-primary" name="action" value="All" type="submit"><div align="center"><a>All</a></div></button>
+              <button class="dropdown-item btn btn-primary" name="action" value="Maths" type="submit"><div align="center"><a>Maths</a></div></button>
           </div>
         </div>
       </div>

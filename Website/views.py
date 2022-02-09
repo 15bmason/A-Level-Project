@@ -1,7 +1,7 @@
 from unicodedata import category
 from flask import Blueprint, render_template, request, flash, jsonify
 from flask_login import login_required, current_user
-from .models import Note
+from .models import Note, Maths
 from . import db
 import json
 
@@ -15,12 +15,21 @@ def home():
         ans = request.form.get("ans")
 
         if len(note) < 1:
-            flash("Note is too short", category="error")
+            flash("Question is too short", category="error")
         else:
-            new_note = Note(data=note, user_id=current_user.id, answer=ans)
-            db.session.add(new_note)
-            db.session.commit()
-            flash("Note has been added", category="success")
+            if len(ans) < 1:
+                flash("Answer is too short", category="error")
+            else:
+                if request.form["action"] == "All":
+                    new_note = Note(data=note, user_id=current_user.id, answer=ans)
+                    db.session.add(new_note)
+                    db.session.commit()
+                    flash("Note has been added", category="success")
+                elif request.form["action"] == "Maths":
+                    new_note = Maths(data=note, answer=ans, user_id=current_user.id)
+                    db.session.add(new_note)
+                    db.session.commit()
+                    flash("Note has been added", category="success")
 
     return render_template("home.html", user=current_user)
 
