@@ -32,3 +32,14 @@ function number_shown(){
   var x = document.getElementById("")
   window.location.href("/")
 }
+
+function check_rot_lock(){
+  var flashcard = document.getElementById("flip-card:hover");
+  var checkbox = document.getElementById("rot-lock");
+  const checked_style= {
+    transform: rotateY(0)
+  }
+  if(checkbox.checked == true){
+    Object.assign(flashcard.style, checked_style);
+  }
+}

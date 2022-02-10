@@ -16,7 +16,8 @@
 }
 
 button.close{
-  padding-right: 1%;
+  margin-right: 5%;
+  margin-top: 2%;
   border-color: transparent;
 }
 
@@ -177,6 +178,9 @@ a:hover {
 }
 .container-arrows{
   text-align: center;
+  background-color: rgb(190, 190, 190);
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
 .settings-btn{
@@ -189,4 +193,21 @@ a:hover {
 
 .drop-menu{
   width: 90%;
+}
+
+.home-page-container{
+  background-color: rgb(190, 190, 190);
+  border-radius: 15px;
+}
+
+.dropdown-submit{
+  background-color: rgb(190, 190, 190);
+}
+
+.rot-lock-checkbox{
+  text-align: left;
+}
+
+.next-arrow{
+  text-align: right;
 }
