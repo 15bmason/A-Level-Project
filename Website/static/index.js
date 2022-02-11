@@ -43,3 +43,11 @@ function check_rot_lock(){
     Object.assign(flashcard.style, checked_style);
   }
 }
+
+function change_scheme(){
+  window.location.href("/");
+  var navbar = document.getElementById("navbar");
+  var front = document.getElementById("flip-card-front");
+  var back = document.getElementById("flip-card-back");
+  Object.assign(navbar.style.backgroundColor, "black");
+}
