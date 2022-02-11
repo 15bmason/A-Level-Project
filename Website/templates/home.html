@@ -62,31 +62,27 @@
                 <button class="dropdown-item btn btn-primary" name="action" value="Maths" type="submit"><div align="center"><a>Maths</a></div></button>
             </div>
           </div>
+              <div class="col-3 dropdown-column">
+                <button class="btn btn-primary dropdown-toggle settings-btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Schemes
+                </button>
+                <div class="dropdown-menu drop-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item light" onclick="setTheme('light')" title="Light mode">Light mode</a>
+                    <a class="dropdown-item dark" onclick="setTheme('dark')" title="Dark mode">Dark mode</a>
+                    <a class="dropdown-item" onclick="setTheme('colourful')" title="Colourful mode">Colourful</a>
+                </div>
+              </div>
         </div>
       </div>
       </form>
       <div class="container container-arrows">
       <br />
         <div class="row">
-          <div class="col-10 rot-lock-checkbox">
-            <input type="checkbox" id="rot-lock" name="rot-lock" value="Rotation" onclick="check_rot_lock()">
-            <label for="rot-lock"> Rotation lock </label><br>
-          </div> 
           <div class="col next-arrow">
             <a href="/" class="previous round">&#8249;</a>
             <a href="/page1" class="next round">&#8250;</a>
           </div>
         </div>
       <br />
-      <div class="toggle-container">
-        <button class="theme-btn btn btn-primary light" onclick="setTheme('light')" title="Light mode">
-          <!--sun icon-->
-        </button>
-        <button class="theme-btn btn btn-primary dark" onclick="setTheme('dark')" title="Dark mode">
-          <!--moon icon-->
-        </button>
-      </div>
     </div>
-   
-
     {% endblock %}

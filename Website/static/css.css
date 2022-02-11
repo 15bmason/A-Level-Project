@@ -43,7 +43,7 @@ button.close{
   }
   
   /* Do an horizontal flip when you move the mouse over the flip box container */
-  .flip-card:hover .flip-card-inner {
+  .flip-card.hover .flip-card-inner{
     transform: rotateY(180deg);
   }
   
@@ -61,7 +61,7 @@ button.close{
   
   /* Style the front side (fallback if image is missing) */
   .flip-card-front {
-    background-color: #478d88;
+    background-color: #4a8d89;
     color: black;
     border-color: #478d88;
   }
@@ -146,7 +146,7 @@ button.close{
 }
 
 .settings-container{
-  background-color: rgb(190, 190, 190);
+  background-color: var(--bg-home-color);
   border-radius: 15px;
   margin-top: 5px;
   margin-bottom: 5px;
@@ -179,7 +179,7 @@ a:hover {
 }
 .container-arrows{
   text-align: center;
-  background-color: rgb(190, 190, 190);
+  background-color: var(--bg-home-color);
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
 }
@@ -197,63 +197,54 @@ a:hover {
 }
 
 .home-page-container{
-  background-color: rgb(190, 190, 190);
-  border-radius: 15px;
+  background-color: var(--bg-home-color);
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 
 .dropdown-submit{
-  background-color: rgb(190, 190, 190);
-}
-
-.rot-lock-checkbox{
-  text-align: left;
+  background-color: var(--bg-home-color);
 }
 
 .next-arrow{
   text-align: right;
 }
-
-.theme-btn.light {
-  display: none;
-}
- 
-.dark .theme-btn.light {
-  display: block;
-  background-color: #fff;
-}
- 
-.dark .theme-btn.dark {
-  display: none;
-}
-
-.theme-btn {
-  width: 3em;
-  height: 3em;
-  padding: 0.5em;
-  border-radius: 50%;
-  cursor: pointer;
-  border: none;
-  background-color: transparent;
-}
- 
-.theme-btn img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
 :root,
 :root.light {
-  --bg-color: #fff;
+  --bg-color: rgb(195,195,195);
+  --bg-home-color: rgb(190,190,190);
   --text-color: #123;
 }
- 
+
 :root.dark {
-  --bg-color: #121212;
+  --bg-color: #3d3d3d;
+  --bg-home-color: #969696;
   --text-color: #45ADFE;
 }
 
+:root.colourful{
+  --bg-color: #a2dee6;
+  --bg-home-color: #739fa5;
+  --text-color: #000000;
+}
+
 body {
+  margin: 0;
   background-color: var(--bg-color);
   color: var(--text-color);
+  font-family: 'Inter', sans-serif
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2.5rem 0;
+  box-sizing: border-box;
 }

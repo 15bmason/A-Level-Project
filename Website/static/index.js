@@ -33,15 +33,9 @@ function number_shown(){
   window.location.href("/")
 }
 
-function check_rot_lock(){
-  var flashcard = document.getElementById("flip-card:hover");
-  var checkbox = document.getElementById("rot-lock");
-  const checked_style= {
-    transform: rotateY(0)
-  }
-  if(checkbox.checked == true){
-    Object.assign(flashcard.style, checked_style);
-  }
-}
+$('.flip-card .flip-card-inner').click(function() {
+  $(this).closest('.flip-card').toggleClass('hover');
+  $(this).css('transform, rotateY(180deg)');
+});
 
 const setTheme = theme => document.documentElement.className = theme;
