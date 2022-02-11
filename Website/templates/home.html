@@ -10,10 +10,10 @@
         <div class="col-3">
           <div class="flip-card">
             <div class="flip-card-inner">
-              <div class="flip-card-front">
+              <div class="flip-card-front" id="flip-card-front">
                 {{ note.data }}
               </div>
-              <div class="flip-card-back">
+              <div class="flip-card-back" id="flip-card-back">
                 {{ note.answer }}
                 <button type="button" class="close" onClick="deleteNote({{ note.id }})">
                   <span aria-hidden="true">&times;</span>
@@ -78,6 +78,15 @@
           </div>
         </div>
       <br />
+      <div class="toggle-container">
+        <button class="theme-btn btn btn-primary light" onclick="setTheme('light')" title="Light mode">
+          <!--sun icon-->
+        </button>
+        <button class="theme-btn btn btn-primary dark" onclick="setTheme('dark')" title="Dark mode">
+          <!--moon icon-->
+        </button>
+      </div>
     </div>
+   
 
     {% endblock %}

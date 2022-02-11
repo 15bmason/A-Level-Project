@@ -6,7 +6,7 @@
   <br />
   <ul class="list-group list-group-flush" id="notes">
     <div class="row">
-    {% set x = user.notes[8:12] %}
+    {% set x = user.notes[16:20] %}
     {% for note in x %}
     <div class="col-3">
       <div class="flip-card">
@@ -26,7 +26,7 @@
     {% endfor %}
   </div>
   <div class="row">
-    {% set y = user.notes[12:16] %}
+    {% set y = user.notes[20:24] %}
     {% for note in y %}
     <div class="col-3">
       <div class="flip-card">
@@ -48,8 +48,8 @@
   </ul>
   <br />
 <div class="container container-arrows">
-  <a href="/" class="previous round">&#8249;</a>
-  <a href="/page2" class="next round">&#8250;</a>
+  <a href="/page1" class="previous round">&#8249;</a>
+  <a href="/page3" class="next round">&#8250;</a>
 </div> 
 <br />
 
