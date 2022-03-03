@@ -248,3 +248,21 @@ main {
   padding: 2.5rem 0;
   box-sizing: border-box;
 }
+
+.cardset{
+  height: 225px;
+  background-color: rgb(144, 162, 180);
+  border-radius: 15%;
+  text-align: center;
+}
+
+.cardset-inner{
+  height: 100%;
+  width: 100%;
+  position: relative;
+  text-align: center;
+}
+
+.cardset-btn{
+  border-radius: 15%;
+}

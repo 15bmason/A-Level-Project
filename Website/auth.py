@@ -8,6 +8,11 @@ from flask_login import login_user, login_required, logout_user, current_user
 
 auth = Blueprint("auth", __name__)
 
+@auth.route("/cardset", methods=["GET", "POST"])
+@login_required
+def cardset():
+    return render_template("cardset.html", user=current_user)
+
 @auth.route("/settings", methods=["GET", "POST"])
 @login_required
 def settings():

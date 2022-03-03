@@ -1,11 +1,29 @@
 from unicodedata import category
 from flask import Blueprint, render_template, request, flash, jsonify
 from flask_login import login_required, current_user
-from .models import Note, Maths
+
+from Website.auth import login
+from .models import Note, Maths, Cardset
 from . import db
 import json
 
 views = Blueprint("views", __name__)
+
+@views.route("/cardset", methods=["GET", "POST"])
+@login_required
+def cardset():
+    if request.method == "POST":
+        cardsetname = request.form.get("cardset-name")
+
+        if len(cardsetname) < 1:
+            flash("Card set name is too short", category="error")
+        else:
+            if request.form["action"] == "cardset":
+                new_set = Cardset(name=cardsetname, user_id=current_user.id)
+                db.session.add(new_set)
+                db.session.commit()
+                flash("Cardset has been added", category="success")
+    return render_template("cardset.html", user=current_user)
 
 @views.route("/", methods=["GET", "POST"])
 @login_required
