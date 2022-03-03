@@ -63,3 +63,14 @@ def delete_note():
 
     return jsonify({})
 
+@views.route("/delete-cardset", methods=["POST"])
+def delete_cardset():
+    cardset = json.loads(request.name)
+    cardId = cardset["cardId"]
+    cardset = Cardset.query.get(cardId)
+    if cardset:
+        if cardset.user_id == current_user.id:
+            db.session.delete(cardset)
+            db.session.commit()
+        
+    return jsonify()

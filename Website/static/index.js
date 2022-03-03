@@ -6,6 +6,14 @@ function deleteNote(noteId) {
       window.location.href = "/";
     });
   }
+function deleteCardset(cardId) {
+  fetch("/delete-cardset", {
+    method: "POST",
+    body: JSON.stringify({ cardId: cardId }),
+  }).then((_res) => {
+    window.location.href = "/cardset";
+  });
+}
 
 function show_pwd(){
     var x = document.getElementById("password");
@@ -39,3 +47,7 @@ $('.flip-card .flip-card-inner').click(function() {
 });
 
 const setTheme = theme => document.documentElement.className = theme;
+
+if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}

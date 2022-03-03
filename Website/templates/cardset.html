@@ -1,17 +1,19 @@
 {% extends "base.html" %} {% block title %}Cardset{% endblock %}
 {% block content %}
-<br />
 <div class="container home-page-container">
     <br />
-    <div class="row">
-        {% for name in user.cards.name %}
-            <div class="col-3">
-                <div class="cardset">
-                    <div class="cardset-inner">
-                        {{ name }}
-                    </div>
+    <div class="row cardset-row">
+        {% for name in user.cards %}
+        <div class="col-3">
+            <div class="cardset">
+                <div class="cardset-inner">
+                    {{ name.name }}
+                    <button type="button" class="close" onClick="deleteCardset({{ name.id }})">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
             </div>
+        </div>
         {% endfor %}
     </div>
     <br />
