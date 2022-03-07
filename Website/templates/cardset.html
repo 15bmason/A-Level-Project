@@ -6,12 +6,14 @@
         {% for name in user.cards %}
         <div class="col-3">
             <div class="cardset">
-                <div class="cardset-inner">
+                <a class="cardset-a-tag cardset-inner" href="/cards" align="center">
+                <div class="cardset-inner" type="button">
                     {{ name.name }}
-                    <button type="button" class="close" onClick="deleteCardset({{ name.id }})">
+                    <button type="button" class="cardset-cls close" onClick="deleteCardset({{ name.id }})">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+                </a>
             </div>
         </div>
         {% endfor %}
