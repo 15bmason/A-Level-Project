@@ -3,27 +3,33 @@
 <div class="container home-page-container">
     <br />
     <div class="row cardset-row">
-        {% for name in user.cardset %}
+        {% for i in user.cards %}
         <div class="col-3">
-            <div class="cardset">
-                <div class="cardset-inner" type="button">
-                    {{ name.name }}
-                    <button type="button" class="cls close" onClick="deleteCardset({{ name.id }})">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front" id="flip-card-front">
+                  {{ c1 }}
                 </div>
+                <div class="flip-card-back" id="flip-card-back">
+                  {{ c }}
+                  <button type="button" class="cls close" onClick="deleteNote({{ i.id }})">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+              </div>
             </div>
-        </div>
+          </div>
         {% endfor %}
     </div>
     <br />
     <form method="POST">
         <textarea name="question" id="question" placeholder="Enter the question." class="form-control"></textarea> 
         <textarea name="answer" id="answer" placeholder="Enter the answer." class="form-control"></textarea> 
+        <textarea name="name" id="name" placeholder="Enter the cardset name." class="form-control"></textarea> 
     <br />
     <div class="container">
         <div class="row justify-content-center">
-            <button type="submit" name="action" value="cardset" class="btn btn-primary cardset-btn">Create</button>
+            <button type="submit" name="action" value="cards" class="btn btn-primary cardset-btn">Create</button>
         </div>
     </div>
 </form>
