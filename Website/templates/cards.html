@@ -8,10 +8,10 @@
             <div class="flip-card">
               <div class="flip-card-inner">
                 <div class="flip-card-front" id="flip-card-front">
-                  {{ c1 }}
+                  {{ name1 }}
                 </div>
                 <div class="flip-card-back" id="flip-card-back">
-                  {{ c }}
+                  {{ name1 }}
                   <button type="button" class="cls close" onClick="deleteNote({{ i.id }})">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -33,5 +33,8 @@
         </div>
     </div>
 </form>
+
+{{ myNote }}
+
 </div>
 {% endblock %}
