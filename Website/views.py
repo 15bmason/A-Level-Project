@@ -11,7 +11,6 @@ views = Blueprint("views", __name__)
 @views.route("/cards", methods=["GET", "POST"])
 @login_required
 def cards():
-    name1 = Cardset.query.filter_by(name="Maths").first_or_404()
     myNote = Note.query.all()
     if request.method == "POST":
         q = request.form.get("question")
@@ -26,7 +25,7 @@ def cards():
                 db.session.add(new_set)
                 db.session.commit()
                 flash("Card has been added", category="success")
-    return render_template("cards.html", user=current_user, name1=name1, myNote=myNote)
+    return render_template("cards.html", myNote=myNote, user=current_user)
 
 
 @views.route("/cardset", methods=["GET", "POST"])
