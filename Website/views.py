@@ -11,7 +11,10 @@ views = Blueprint("views", __name__)
 @views.route("/cards", methods=["GET", "POST"])
 @login_required
 def cards():
-    myNote = Note.query.all()
+    name = request.args.get("id")
+
+    all_cards = Cards.query.filter_by(cardset = name)
+
     if request.method == "POST":
         q = request.form.get("question")
         a = request.form.get("answer")
@@ -21,11 +24,11 @@ def cards():
             flash("Answer is too short", category="error")
         else:
             if request.form["action"] == "cards":
-                new_set = Cards(question=q, answer=a, user_id=current_user.id)
+                new_set = Cards(question=q, answer=a, user_id=current_user.id, cardset=name)
                 db.session.add(new_set)
                 db.session.commit()
                 flash("Card has been added", category="success")
-    return render_template("cards.html", myNote=myNote, user=current_user)
+    return render_template("cards.html", all_cards=all_cards, user=current_user, name=name)
 
 
 @views.route("/cardset", methods=["GET", "POST"])

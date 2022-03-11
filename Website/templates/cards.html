@@ -3,29 +3,28 @@
 <div class="container home-page-container">
     <br />
     <div class="row cardset-row">
-        {% for i in user.cards %}
-        <div class="col-3">
-            <div class="flip-card">
-              <div class="flip-card-inner">
-                <div class="flip-card-front" id="flip-card-front">
-                  {{ word }}
-                </div>
-                <div class="flip-card-back" id="flip-card-back">
-                  {{ word }}
-                  <button type="button" class="cls close" onClick="deleteNote({{ i.id }})">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
+          {% for i in all_cards %}
+          <div class="col-3">
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front" id="flip-card-front">
+                    {{ i.question }}
+                  </div>
+                  <div class="flip-card-back" id="flip-card-back">
+                    {{ i.answer }}
+                    <button type="button" class="cls close" onClick="deleteNote({{ i.id }})">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        {% endfor %}
+          {% endfor %}
     </div>
     <br />
     <form method="POST">
         <textarea name="question" id="question" placeholder="Enter the question." class="form-control"></textarea> 
         <textarea name="answer" id="answer" placeholder="Enter the answer." class="form-control"></textarea> 
-        <textarea name="name" id="name" placeholder="Enter the cardset name." class="form-control"></textarea> 
     <br />
     <div class="container">
         <div class="row justify-content-center">
@@ -33,10 +32,5 @@
         </div>
     </div>
 </form>
-
-{% for user in myNote %}
-    <li> {{ user.id }} - {{user.data}} </li>
-{% endfor %}
-
 </div>
 {% endblock %}

@@ -6,7 +6,7 @@
         {% for name in user.cardset %}
         <div class="col-3">
             <div class="cardset">
-                <a class="cardset-a-tag cardset-inner" href="/cards" align="center">
+                <a class="cardset-a-tag cardset-inner" name="cardset-btn" id="cardset-btn" href="/cards?id={{ name.name }}" align="center">
                 <div class="cardset-inner" type="button">
                     {{ name.name }}
                     <button type="button" class="cardset-cls close" onClick="deleteCardset({{ name.id }})">
