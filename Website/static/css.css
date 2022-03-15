@@ -59,6 +59,7 @@ button.close{
   
   /* Style the front side (fallback if image is missing) */
   .flip-card-front {
+    flex-wrap: wrap;
     background-color: #4a8d89;
     color: black;
     border-color: #478d88;
@@ -66,6 +67,7 @@ button.close{
   
   /* Style the back side */
   .flip-card-back {
+    align-items: center;
     background-color: #547980;
     color: rgb(0, 0, 0);
     border-color: #547980;
@@ -291,4 +293,11 @@ a:hover {
 
 .cls{
   margin-right: 7%
+}
+
+.left, .right{
+  flex-wrap: wrap;
+  margin-top: 15%;
+  position: absolute;
+  width: 100%;
 }

@@ -10,11 +10,17 @@
                   <div class="flip-card-front" id="flip-card-front">
                     {{ i.question }}
                   </div>
-                  <div class="flip-card-back" id="flip-card-back">
-                    {{ i.answer }}
-                    <button type="button" class="cls close" onClick="deleteNote({{ i.id }})">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
+                  <div class="container flip-card-back" id="flip-card-back" align="center">
+                    <div class="row">
+                      <div class="left">
+                        {{ i.answer }}
+                      </div>
+                      <div class="right">
+                        <button type="button" class="cls close" onClick="deleteNote({{ i.id }})">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
