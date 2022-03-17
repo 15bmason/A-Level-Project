@@ -301,3 +301,9 @@ a:hover {
   position: absolute;
   width: 100%;
 }
+
+.navbar-a-tag:hover{
+  text-decoration: none;
+  background-color: transparent;
+  color: white;
+}

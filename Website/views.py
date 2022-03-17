@@ -50,37 +50,17 @@ def cardset():
 @views.route("/", methods=["GET", "POST"])
 @login_required
 def home():
-    if request.method == "POST":
-        note = request.form.get("note")
-        ans = request.form.get("ans")
-
-        if len(note) < 1:
-            flash("Question is too short", category="error")
-        else:
-            if len(ans) < 1:
-                flash("Answer is too short", category="error")
-            else:
-                if request.form["action"] == "All":
-                    new_note = Note(data=note, user_id=current_user.id, answer=ans)
-                    db.session.add(new_note)
-                    db.session.commit()
-                    flash("Note has been added", category="success")
-                elif request.form["action"] == "Maths":
-                    new_note = Maths(data=note, answer=ans, user_id=current_user.id)
-                    db.session.add(new_note)
-                    db.session.commit()
-                    flash("Note has been added", category="success")
-
     return render_template("home.html", user=current_user)
 
-@views.route('/delete-note', methods=['POST'])
-def delete_note():
-    note = json.loads(request.data)
-    noteId = note['noteId']
-    note = Note.query.get(noteId)
-    if note:
-        if note.user_id == current_user.id:
-            db.session.delete(note)
+@views.route('/delete-card', methods=['POST'])
+def delete_card():
+    name = request.args.get("id")
+    card = json.loads(request.data)
+    cardId = card['cardId']
+    card = Cards.query.get(cardId)
+    if card:
+        if card.user_id == current_user.id:
+            db.session.delete(card)
             db.session.commit()
 
     return jsonify({})

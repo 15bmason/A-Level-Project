@@ -1,11 +1,16 @@
-function deleteNote(noteId) {
-    fetch("/delete-note", {
-      method: "POST",
-      body: JSON.stringify({ noteId: noteId }),
+function deleteCard(cardId) {
+  let url_str = window.location.href;
+  let  url = new URL(url_str);
+  let search_params = url.searchParams;
+  fetch("/delete-card", {
+    method: "POST",
+    body: JSON.stringify({ cardId: cardId }),
     }).then((_res) => {
-      window.location.href = "/";
+      let id = search_params.get('id');
+      window.location.href = ("/cards" + "?id=" + id);
     });
-  }
+  }  
+
 function deleteCardset(cardId) {
   fetch("/delete-cardset", {
     method: "POST",
