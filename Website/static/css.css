@@ -307,3 +307,19 @@ a:hover {
   background-color: transparent;
   color: white;
 }
+
+.footer-container{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #8a8a8a;
+  color: black;
+  text-align: center;
+  vertical-align: center;
+  height: 140px;
+}
+
+.footer-tag{
+ align-items: center;
+}
