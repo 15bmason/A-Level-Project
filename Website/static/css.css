@@ -47,7 +47,7 @@ button.close{
   
   /* Position the front and back side */
   .flip-card-front, .flip-card-back {
-    border-radius: 15%;
+    border-radius: 10%;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -59,7 +59,6 @@ button.close{
   
   /* Style the front side (fallback if image is missing) */
   .flip-card-front {
-    flex-wrap: wrap;
     background-color: #4a8d89;
     color: black;
     border-color: #478d88;
@@ -67,7 +66,7 @@ button.close{
   
   /* Style the back side */
   .flip-card-back {
-    align-items: center;
+    text-align: center;
     background-color: #547980;
     color: rgb(0, 0, 0);
     border-color: #547980;
@@ -295,10 +294,14 @@ a:hover {
   margin-right: 7%
 }
 
+.center{
+  margin-top: 2%;
+  width: 100%;
+}
+
 .left, .right{
-  flex-wrap: wrap;
-  margin-top: 15%;
-  position: absolute;
+  margin-top: 2%;
+  text-align: center;
   width: 100%;
 }
 
@@ -313,11 +316,11 @@ a:hover {
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: #8a8a8a;
-  color: black;
+  background-color: #26485c;
+  color: white;
   text-align: center;
   vertical-align: center;
-  height: 140px;
+  height: 100px;
 }
 
 .footer-tag{

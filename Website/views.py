@@ -18,10 +18,25 @@ def cards():
     if request.method == "POST":
         q = request.form.get("question")
         a = request.form.get("answer")
+        words_q = q.split()
+        words_a = a.split()
+        words_over_20 = []
+        for word in words_q:
+            if len(word) > 20:
+                words_over_20.append(word)
+        for word in words_a:
+            if len(word) > 20:
+                words_over_20.append(word)
         if len(q) < 1:
             flash("Question is too short", category="error")
         elif len(a) < 1:
             flash("Answer is too short", category="error")
+        elif len(q) > 249:
+            flash("Question is too long", category="error")
+        elif len(a) > 249:
+            flash("Answer is too long", category="error")
+        elif words_over_20 != []:
+            flash("Some words too long to accurately be formatted", category="error")
         else:
             if request.form["action"] == "cards":
                 new_set = Cards(question=q, answer=a, user_id=current_user.id, cardset=name)
