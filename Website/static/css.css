@@ -7,8 +7,8 @@
   border-bottom: transparent;
 }
 
-.navbar{
-  background-color: #26485c;
+.navbar, .navbar-collapse{
+  background: #26485c;
 }
 
 .title{
@@ -60,7 +60,6 @@ button.close{
   /* Style the front side (fallback if image is missing) */
   .flip-card-front {
     background-color: #4a8d89;
-    color: black;
     border-color: #478d88;
   }
   
@@ -68,7 +67,6 @@ button.close{
   .flip-card-back {
     text-align: center;
     background-color: #547980;
-    color: rgb(0, 0, 0);
     border-color: #547980;
     transform: rotateY(180deg);
   }
@@ -111,11 +109,11 @@ button.close{
 /* Change navbar styling on small viewports */
 @media (max-width: 991.98px) {
     .navbar {
-        background: #fff;
+        background: #26485c;
     }
 
     .navbar .navbar-brand, .navbar .nav-link {
-        color: #555;
+        color: #ffffff;
     }
 }
 
@@ -192,13 +190,7 @@ a:hover {
 }
 
 .home-page-container{
-  background-color: var(--bg-home-color);
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-}
-
-.dropdown-submit{
-  background-color: var(--bg-home-color);
+  border-radius: 1%;
 }
 
 .next-arrow{
@@ -206,31 +198,6 @@ a:hover {
 }
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
-:root,
-:root.light {
-  --bg-color: rgb(195,195,195);
-  --bg-home-color: rgb(190,190,190);
-  --text-color: #123;
-}
-
-:root.dark {
-  --bg-color: #3d3d3d;
-  --bg-home-color: #969696;
-  --text-color: #45ADFE;
-}
-
-:root.colourful{
-  --bg-color: #a2dee6;
-  --bg-home-color: #739fa5;
-  --text-color: #000000;
-}
-
-body {
-  margin: 0;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  font-family: 'Inter', sans-serif
-}
 
 main {
   display: flex;
@@ -248,7 +215,7 @@ main {
   margin-top: 5%;
   height: 225px;
   background-color: rgb(144, 162, 180);
-  border-radius: 10%;
+  border-radius: 6.5%;
   text-align: center;
 }
 
@@ -260,7 +227,7 @@ main {
 }
 
 .cardset-btn{
-  border-radius: 15%;
+  border-radius: 6.5%;
 }
 
 a:link {
@@ -325,4 +292,37 @@ a:hover {
 
 .card-btn{
   position:relative;
+}
+
+body{
+  --text-color: rgb(24, 24, 24);
+  --bkg-color: rgb(195,195,195);
+}
+body.dark-theme{
+  --text-color: #eee;
+  --bkg-color: #313131;
+}
+@media (prefers-color-scheme: dark) {
+  /* defaults to dark theme */
+  body{
+    --text-color: #eee;
+    --bkg-color: #313131;
+  }
+  body.light-theme{
+    --text-color: rgb(24, 24, 24);
+    --bkg-color: rgb(195,195,195);
+  }
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: var(--bkg-color);
+}
+
+h1,
+p {
+  color: var(--text-color);
 }

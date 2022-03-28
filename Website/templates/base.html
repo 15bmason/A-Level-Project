@@ -43,6 +43,8 @@
                   <li class="nav-item"><a href="/cardset" class="navbar-a-tag nav-link text-uppercase font-weight-bold">Cards</a></li>
                   <li class="nav-item"><a href="/logout" class="navbar-a-tag nav-link text-uppercase font-weight-bold">Logout</a></li>
                   <li class="nav-item"><a href="/settings" class="navbar-a-tag nav-link text-uppercase font-weight-bold">Settings</a></li>
+                  <li class="nav-item"><a href="#" class="btn-toggle navbar-a-tag nav-link text-uppercase font-weight-bold">Theme</a></li>
+
                 {% else %}
                   <li class="nav-item"><a href="/login" class="navbar-a-tag nav-link text-uppercase font-weight-bold">Login</a></li>
                   <li class="nav-item"><a href="/sign-up" class="navbar-a-tag nav-link text-uppercase font-weight-bold">Sign up</a></li>
@@ -74,7 +76,7 @@
     {% endif %}
     {% endwith %}
 
-    <div class="container">
+    <div class="container home-page-container">
       {% block content %}
       {% endblock %}
     </div>
