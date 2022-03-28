@@ -56,3 +56,8 @@ const setTheme = theme => document.documentElement.className = theme;
 if ( window.history.replaceState ) {
   window.history.replaceState( null, null, window.location.href );
 }
+
+function myFunction() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}
