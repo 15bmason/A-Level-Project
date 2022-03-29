@@ -52,19 +52,28 @@
   <div class="modal-dialog">
 
     <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
+    <div class="container modal-content">
+      <div class="row modal-header">
+        <div class="col-8 offset-2">
+          <h4 class="modal-title" style="text-align:center;">Edit card</h4>
+        </div>
+        <div class="col-2">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
       </div>
       <div class="modal-body">
-        <p>Some text in the modal.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <form method="POST">
+          <textarea name="revised_question" id="revised_question" placeholder="Enter the changed question." class="form-control"></textarea> 
+          <textarea name="revised_answer" id="revised_answer" placeholder="Enter the changed answer." class="form-control"></textarea> 
+          <br />
+          <div class="container">
+            <div class="row justify-content-center">
+                <button type="submit" name="revised_action" value="revised_cards" class="btn btn-primary cardset-btn">Edit</button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
-
   </div>
 </div>
 <br />

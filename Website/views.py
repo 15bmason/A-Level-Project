@@ -12,9 +12,7 @@ views = Blueprint("views", __name__)
 @login_required
 def cards():
     name = request.args.get("id")
-
     all_cards = Cards.query.filter_by(cardset = name)
-
     if request.method == "POST":
         q = request.form.get("question")
         a = request.form.get("answer")
