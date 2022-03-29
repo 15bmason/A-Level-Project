@@ -91,11 +91,3 @@ def delete_cardset():
             db.session.commit()
         
     return jsonify({})
-
-@views.route('/alter-card', method=["POST"])
-def alter_card():
-    card = json.loads(request.data)
-    cardId = card['cardId']
-    card = Cards.query.get(cardId)
-    
-    return jsonify({})
