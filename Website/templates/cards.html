@@ -25,7 +25,7 @@
                               <button class="btn card-btn" style="padding-left:0px;padding-right:0px;" onclick="deleteCard({{ i.id }})"><i class="fa-solid fa-xmark" ></i></button>
                             </div>
                             <div class="col-12">
-                              <button type="button" id="button{{i.id}}" class="btn card-btn" data-toggle="modal" data-target="#myModal" style="padding-left:0px;padding-right:0px;"><i class="fa-solid fa-pen-to-square"></i></button>
+                              <button type="button" name="alter_btn" value="button{{i.id}}" id="button{{i.id}}" class="btn card-btn" data-toggle="modal" data-target="#myModal" style="padding-left:0px;padding-right:0px;"><i class="fa-solid fa-pen-to-square"></i></button>
                             </div>
                           </div>
                         </div>
@@ -63,8 +63,8 @@
       </div>
       <div class="modal-body">
         <form method="POST">
-          <textarea name="revised_question" id="revised_question" placeholder="Enter the changed question." class="form-control"></textarea> 
-          <textarea name="revised_answer" id="revised_answer" placeholder="Enter the changed answer." class="form-control"></textarea> 
+          <textarea name="revised_question" id="revised_question" value="{{ question }}" class="form-control">{{ value }}</textarea> 
+          <textarea name="revised_answer" id="revised_answer" value="{{ answer }}" class="form-control">{{ answer }}</textarea> 
           <br />
           <div class="container">
             <div class="row justify-content-center">

@@ -5,15 +5,28 @@ from Website.auth import login
 from .models import Cardset, Cards
 from . import db
 import json
+import sys
 
 views = Blueprint("views", __name__)
 
 @views.route("/cards", methods=["GET", "POST"])
 @login_required
 def cards():
+    question = "words"
+    answer = ""
+    value = ""
     name = request.args.get("id")
     all_cards = Cards.query.filter_by(cardset = name)
     if request.method == "POST":
+        value = request.form["alter_btn"]
+
+        for i in range(len(all_cards)):
+            if request.form["alter_btn"] == "button"+i:
+                print('Hello world!', file=sys.stderr)
+                specific_card = Cards.query.filter_by(id = i)
+                question = specific_card.question
+                answer = specific_card.answer
+
         q = request.form.get("question")
         a = request.form.get("answer")
         words_q = q.split()
@@ -41,7 +54,7 @@ def cards():
                 db.session.add(new_set)
                 db.session.commit()
                 flash("Card has been added", category="success")
-    return render_template("cards.html", all_cards=all_cards, user=current_user, name=name)
+    return render_template("cards.html", all_cards=all_cards, user=current_user, name=name, question=question, answer=answer, value=value)
 
 
 @views.route("/cardset", methods=["GET", "POST"])
