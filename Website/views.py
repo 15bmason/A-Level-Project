@@ -12,49 +12,50 @@ views = Blueprint("views", __name__)
 @views.route("/cards", methods=["GET", "POST"])
 @login_required
 def cards():
+    print("x")
     question = "words"
     answer = ""
-    value = ""
     name = request.args.get("id")
-    all_cards = Cards.query.filter_by(cardset = name)
+    all_cards = Cards.query.filter_by(cardset = name).all()
     if request.method == "POST":
-        value = request.form["alter_btn"]
-
-        for i in range(len(all_cards)):
-            if request.form["alter_btn"] == "button"+i:
-                print('Hello world!', file=sys.stderr)
-                specific_card = Cards.query.filter_by(id = i)
-                question = specific_card.question
-                answer = specific_card.answer
-
-        q = request.form.get("question")
-        a = request.form.get("answer")
-        words_q = q.split()
-        words_a = a.split()
-        words_over_20 = []
-        for word in words_q:
-            if len(word) > 20:
-                words_over_20.append(word)
-        for word in words_a:
-            if len(word) > 20:
-                words_over_20.append(word)
-        if len(q) < 1:
-            flash("Question is too short", category="error")
-        elif len(a) < 1:
-            flash("Answer is too short", category="error")
-        elif len(q) > 249:
-            flash("Question is too long", category="error")
-        elif len(a) > 249:
-            flash("Answer is too long", category="error")
-        elif words_over_20 != []:
-            flash("Some words too long to accurately be formatted", category="error")
-        else:
-            if request.form["action"] == "cards":
+        form_name = request.form["form-name"]
+        if form_name == "cards":
+            q = request.form.get("question")
+            a = request.form.get("answer")
+            words_q = q.split()
+            words_a = a.split()
+            words_over_20 = []
+            for word in words_q:
+                if len(word) > 20:
+                    words_over_20.append(word)
+            for word in words_a:
+                if len(word) > 20:
+                    words_over_20.append(word)
+            if len(q) < 1:
+                flash("Question is too short", category="error")
+            elif len(a) < 1:
+                flash("Answer is too short", category="error")
+            elif len(q) > 249:
+                flash("Question is too long", category="error")
+            elif len(a) > 249:
+                flash("Answer is too long", category="error")
+            elif words_over_20 != []:
+                flash("Some words too long to accurately be formatted", category="error")
+            else:
                 new_set = Cards(question=q, answer=a, user_id=current_user.id, cardset=name)
                 db.session.add(new_set)
                 db.session.commit()
                 flash("Card has been added", category="success")
-    return render_template("cards.html", all_cards=all_cards, user=current_user, name=name, question=question, answer=answer, value=value)
+    try:
+        if request.form["alter_btn1"]:
+            specific_card = Cards.query.filter_by(id = 1)
+            question = specific_card.question
+            print(question)
+            answer = specific_card.answer
+    except:
+        print("error")
+        
+    return render_template("cards.html", all_cards=all_cards, user=current_user, name=name, question=question, answer=answer)
 
 
 @views.route("/cardset", methods=["GET", "POST"])

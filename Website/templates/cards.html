@@ -25,7 +25,7 @@
                               <button class="btn card-btn" style="padding-left:0px;padding-right:0px;" onclick="deleteCard({{ i.id }})"><i class="fa-solid fa-xmark" ></i></button>
                             </div>
                             <div class="col-12">
-                              <button type="button" name="alter_btn" value="button{{i.id}}" id="button{{i.id}}" class="btn card-btn" data-toggle="modal" data-target="#myModal" style="padding-left:0px;padding-right:0px;"><i class="fa-solid fa-pen-to-square"></i></button>
+                              <button type="button" name="alter_btn{{ i.id }}" value="button{{i.id}}" id="button{{i.id}}" class="btn card-btn" data-toggle="modal" data-target="#myModal" style="padding-left:0px;padding-right:0px;"><i class="fa-solid fa-pen-to-square"></i></button>
                             </div>
                           </div>
                         </div>
@@ -43,7 +43,7 @@
     <br />
     <div class="container">
         <div class="row justify-content-center">
-            <button type="submit" name="action" value="cards" class="btn btn-primary cardset-btn">Create</button>
+            <button type="submit" name="form-name" value="cards" class="btn btn-primary cardset-btn">Create</button>
         </div>
     </div>
 </form>
@@ -63,12 +63,12 @@
       </div>
       <div class="modal-body">
         <form method="POST">
-          <textarea name="revised_question" id="revised_question" value="{{ question }}" class="form-control">{{ value }}</textarea> 
-          <textarea name="revised_answer" id="revised_answer" value="{{ answer }}" class="form-control">{{ answer }}</textarea> 
+          <textarea name="revised_question" id="revised_question" class="form-control">{{ question }}</textarea> 
+          <textarea name="revised_answer" id="revised_answer" class="form-control">{{ answer }}</textarea> 
           <br />
           <div class="container">
             <div class="row justify-content-center">
-                <button type="submit" name="revised_action" value="revised_cards" class="btn btn-primary cardset-btn">Edit</button>
+                <button type="submit" name="form-name" value="revised_cards" class="btn btn-primary cardset-btn">Edit</button>
             </div>
           </div>
         </form>
@@ -77,5 +77,6 @@
   </div>
 </div>
 <br />
+{{question}}
 </div>
 {% endblock %}
