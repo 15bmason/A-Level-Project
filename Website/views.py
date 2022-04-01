@@ -46,15 +46,7 @@ def cards():
                 db.session.add(new_set)
                 db.session.commit()
                 flash("Card has been added", category="success")
-    try:
-        if request.form["alter_btn1"]:
-            specific_card = Cards.query.filter_by(id = 1)
-            question = specific_card.question
-            print(question)
-            answer = specific_card.answer
-    except:
-        print("error")
-        
+
     return render_template("cards.html", all_cards=all_cards, user=current_user, name=name, question=question, answer=answer)
 
 

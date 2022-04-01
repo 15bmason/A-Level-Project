@@ -81,3 +81,14 @@ btn.addEventListener("click", function () {
   }
   localStorage.setItem("theme", theme);
 });
+
+$('.modal').on('show.bs.modal', function (e) {
+  var $trigger = $(e.relatedTarget);
+document.getElementById("card-id").value = $trigger.data('button');
+let id = String($trigger.data('button'));
+let index = id.slice(9);
+let question = document.getElementById("question_text" + index).textContent;
+let answer = document.getElementById("answer_text" + index).textContent;
+document.getElementById("modal_question").innerHTML = question;
+document.getElementById("modal_answer").innerHTML = answer;
+});

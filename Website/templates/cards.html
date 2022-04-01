@@ -10,14 +10,14 @@
                     <div class="container flip-card-front" id="flip-card-front">
                       <div class="row">
                         <div class="col-8 offset-2">
-                          <p>{{ i.question }}</p>
+                          <p id="question_text{{ i.id }}">{{ i.question }}</p>
                         </div>
                       </div>
                     </div>
                     <div class="container flip-card-back" id="flip-card-back" align="center">
                       <div class="row">
                         <div class="col-8 offset-2">
-                          <p>{{ i.answer }}</p>
+                          <p id="answer_text{{ i.id }}">{{ i.answer }}</p>
                         </div>
                         <div class="col-2">
                           <div class="row">
@@ -25,7 +25,7 @@
                               <button class="btn card-btn" style="padding-left:0px;padding-right:0px;" onclick="deleteCard({{ i.id }})"><i class="fa-solid fa-xmark" ></i></button>
                             </div>
                             <div class="col-12">
-                              <button type="button" name="alter_btn{{ i.id }}" value="button{{i.id}}" id="button{{i.id}}" class="btn card-btn" data-toggle="modal" data-target="#myModal" style="padding-left:0px;padding-right:0px;"><i class="fa-solid fa-pen-to-square"></i></button>
+                              <button type="button" name="alter_btn{{ i.id }}" value="button{{i.id}}" id="button{{i.id}}" data-button="alter_btn{{ i.id }}" class="btn card-btn" data-toggle="modal" data-target="#myModal" style="padding-left:0px;padding-right:0px;"><i class="fa-solid fa-pen-to-square"></i></button>
                             </div>
                           </div>
                         </div>
@@ -63,8 +63,9 @@
       </div>
       <div class="modal-body">
         <form method="POST">
-          <textarea name="revised_question" id="revised_question" class="form-control">{{ question }}</textarea> 
-          <textarea name="revised_answer" id="revised_answer" class="form-control">{{ answer }}</textarea> 
+          <input type="hidden" id="card-id" value="">
+          <textarea name="revised_question" id="modal_question" class="form-control"></textarea> 
+          <textarea name="revised_answer" id="modal_answer" class="form-control"></textarea> 
           <br />
           <div class="container">
             <div class="row justify-content-center">
@@ -77,6 +78,5 @@
   </div>
 </div>
 <br />
-{{question}}
 </div>
 {% endblock %}
