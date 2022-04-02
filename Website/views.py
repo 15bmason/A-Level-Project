@@ -46,7 +46,36 @@ def cards():
                 db.session.add(new_set)
                 db.session.commit()
                 flash("Card has been added", category="success")
-
+        if form_name == "revised_cards":
+            q = request.form.get("modal_question")
+            a = request.form.get("modal_answer")
+            index = request.form.get("card-id")
+            id = index[9:]
+            words_q = q.split()
+            words_a = a.split()
+            words_over_20 = []
+            for word in words_q:
+                if len(word) > 20:
+                    words_over_20.append(word)
+            for word in words_a:
+                if len(word) > 20:
+                    words_over_20.append(word)
+            if len(q) < 1:
+                flash("Question is too short", category="error")
+            elif len(a) < 1:
+                flash("Answer is too short", category="error")
+            elif len(q) > 249:
+                flash("Question is too long", category="error")
+            elif len(a) > 249:
+                flash("Answer is too long", category="error")
+            elif words_over_20 != []:
+                flash("Some words too long to accurately be formatted", category="error")
+            else:
+                new = Cards.query.filter_by(id = id).first()
+                new.question = q
+                new.answer = a
+                db.session.commit()
+                flash("Card has been added", category="success")
     return render_template("cards.html", all_cards=all_cards, user=current_user, name=name, question=question, answer=answer)
 
 

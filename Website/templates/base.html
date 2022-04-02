@@ -33,7 +33,11 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg py-3" id="navbar">
-      <div class="container"><a href="/" class="navbar-a-tag navbar-brand text-uppercase font-weight-bold">Flashcards</a>
+      <div class="container"><a href="/" class="navbar-a-tag navbar-brand text-uppercase font-weight-bold" title="Remember">
+        Remember
+        <div class="logo-image">
+          <span><img src="{{ url_for('static', filename='lightbulb.png') }}" class="img-fluid"></span>
+        </div></a>
           <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
           
           <div id="navbarSupportedContent" class="collapse navbar-collapse">
