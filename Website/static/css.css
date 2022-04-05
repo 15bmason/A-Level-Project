@@ -107,7 +107,7 @@ button.close{
 }
 
 /* Change navbar styling on small viewports */
-@media (max-width: 991.98px) {
+@media (max-width: 900.98px) {
     .navbar {
         background: #26485c;
     }
@@ -268,34 +268,10 @@ a:hover {
   width: 100%;
 }
 
-.navbar-nav{
-  display: inline;
-}
-
-.navbar-a-tag{
-  display: inline;
-}
-
 .navbar-a-tag:hover{
   text-decoration: none;
   background-color: transparent;
   color: white;
-}
-
-.footer-container{
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: #26485c;
-  color: white;
-  text-align: center;
-  vertical-align: center;
-  height: 100px;
-}
-
-.footer-tag{
- align-items: center;
 }
 
 .card-btn{
