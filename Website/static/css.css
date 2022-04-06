@@ -189,8 +189,21 @@ a:hover {
   width: 90%;
 }
 
+.container-fluid {
+  padding: 0px;
+}
+
+@media (max-width: 1000px) {
+  body { 
+      padding-left: 0px;
+      padding-right: 0px;
+  }
+}
+
+
 .home-page-container{
   border-radius: 1%;
+  width: 100%;
 }
 
 .next-arrow{

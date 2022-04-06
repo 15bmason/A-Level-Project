@@ -6,6 +6,7 @@ from .models import Cardset, Cards
 from . import db
 import json
 import sys
+import random
 
 views = Blueprint("views", __name__)
 
@@ -76,6 +77,11 @@ def cards():
                 new.answer = a
                 db.session.commit()
                 flash("Card has been added", category="success")
+
+        if form_name == "shuffle-btn":
+            print(all_cards)
+            all_cards = sorted(all_cards, key=lambda k: random.random())
+            print(all_cards)
     return render_template("cards.html", all_cards=all_cards, user=current_user, name=name, question=question, answer=answer)
 
 
