@@ -72,7 +72,9 @@ def cards():
             elif words_over_20 != []:
                 flash("Some words too long to accurately be formatted", category="error")
             else:
-                new = Cards.query.filter_by(id = id).first()
+                print(id)
+                new = Cards.query.filter_by(id = id).all()
+                print(new)
                 new.question = q
                 new.answer = a
                 db.session.commit()
