@@ -1,25 +1,26 @@
 {% extends "base.html" %} {% block title %}Sign Up{% endblock %}
 {% block content %}
 <form method="POST">
-    <h3 align="center">Sign Up</h3>
+    <br />
+    <br />
     <div class="form-group">
-        <label for="email">Email Address</label>
+        <p><label for="email">Email Address</label></p>
         <input type="email" class="form-control" id="email" name="email" placeholder="Enter email"/>
     </div>
     <div class="form-group">
-        <label for="firstName">First Name</label>
+        <p><label for="firstName">First Name</label></p>
         <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Enter first name"/>
     </div>
     <div class="form-group">
-        <label for="password1">Password</label>
+        <p><label for="password1">Password</label></p>
         <input type="password" class="form-control" id="password1" name="password1" placeholder="Enter password"/>
     </div>
     <div class="form-group">
-        <label for="password2">Password</label>
+        <p><label for="password2">Re-enter password</label></p>
         <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm password"/>
     </div>
     <div class="check-box">
-        <input type="checkbox" onclick="show_pwd_signup()">  Show password
+        <p><input type="checkbox" onclick="show_pwd_signup()">  Show password</p>
     </div>
     <br />
     <button type="submit" class="btn btn-primary">Sign up</button>
