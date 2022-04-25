@@ -87,3 +87,5 @@ let answer = document.getElementById("answer_text" + index).textContent;
 document.getElementById("modal_question").innerHTML = question;
 document.getElementById("modal_answer").innerHTML = answer;
 });
+
+console.log(document.getElementById("my_data"));
