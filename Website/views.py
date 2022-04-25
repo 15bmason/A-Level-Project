@@ -72,7 +72,7 @@ def cards():
                 flash("Some words too long to accurately be formatted", category="error")
             else:
                 print(id)
-                new = Cards.query.filter_by(id = id).all()
+                new = Cards.query.filter_by(id = id).first()
                 print(new)
                 new.question = q
                 new.answer = a

@@ -21,23 +21,23 @@ function deleteCardset(cardId) {
 }
 
 function show_pwd(){
-    var x = document.getElementById("password");
-  if (x.type === "password") {
-    x.type = "text";
+    var password = document.getElementById("password");
+  if (password.type === "password") {
+    password.type = "text";
   } else {
-    x.type = "password";
+    password.type = "password";
   }
 }
 
 function show_pwd_signup(){
-    var x = document.getElementById("password1");
-    var y = document.getElementById("password2");
+    var password = document.getElementById("password1");
+    var confirmed_password = document.getElementById("password2");
     if(y.type === "password"){
-      x.type = "text";
-      y.type = "text";
+      password.type = "text";
+      confirmed_password.type = "text";
     } else {
-      x.type = "password";
-      y.type = "password";
+      password.type = "password";
+      confirmed_password.type = "password";
     }
   }
 
@@ -61,22 +61,22 @@ if (currentTheme == "dark") {
 } else if (currentTheme == "light") {
   document.body.classList.toggle("light-theme");
 }
-
-btn.addEventListener("click", function () {
-  if (prefersDarkScheme.matches) {
-    document.body.classList.toggle("light-theme");
-    var theme = document.body.classList.contains("light-theme")
-      ? "light"
-      : "dark";
-  } else {
-    document.body.classList.toggle("dark-theme");
-    var theme = document.body.classList.contains("dark-theme")
-      ? "dark"
-      : "light";
-  }
-  localStorage.setItem("theme", theme);
-});
-
+window.onload=function(){
+  btn.addEventListener("click", function () {
+    if (prefersDarkScheme.matches) {
+      document.body.classList.toggle("light-theme");
+      var theme = document.body.classList.contains("light-theme")
+        ? "light"
+        : "dark";
+    } else {
+      document.body.classList.toggle("dark-theme");
+      var theme = document.body.classList.contains("dark-theme")
+        ? "dark"
+        : "light";
+    }
+    localStorage.setItem("theme", theme);
+  });
+}
 $('.modal').on('show.bs.modal', function (e) {
   var $trigger = $(e.relatedTarget);
 document.getElementById("card-id").value = $trigger.data('button');
@@ -87,5 +87,3 @@ let answer = document.getElementById("answer_text" + index).textContent;
 document.getElementById("modal_question").innerHTML = question;
 document.getElementById("modal_answer").innerHTML = answer;
 });
-
-console.log(document.querySelector('meta[name="my_data"]').content);
