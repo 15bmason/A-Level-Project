@@ -13,7 +13,6 @@ views = Blueprint("views", __name__)
 @views.route("/cards", methods=["GET", "POST"])
 @login_required
 def cards():
-    print("x")
     question = "words"
     answer = ""
     name = request.args.get("id")
@@ -81,9 +80,12 @@ def cards():
                 flash("Card has been added", category="success")
 
         if form_name == "shuffle-btn":
-            print(all_cards)
             all_cards = sorted(all_cards, key=lambda k: random.random())
-            print(all_cards)
+
+        if form_name == "bubble-btn":
+            print(Cards.query.filter_by(id = 1).first())
+
+
     return render_template("cards.html", all_cards=all_cards, user=current_user, name=name, question=question, answer=answer)
 
 
@@ -132,3 +134,10 @@ def delete_cardset():
             db.session.commit()
         
     return jsonify({})
+
+
+def bubbleSort(arr):
+    for i in range(len(arr)):
+        for j in range(len(arr) - 1):
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j+1], arr[j]

@@ -1,11 +1,12 @@
 {% extends "base.html" %} {% block title %}Cardset{% endblock %}
 {% block content %}
 <div class="container-fluid home-page-container">
-  <meta id="my_data" data="{{ all_cards }}">
+  <meta id="my_data" name="my_data" data="{{ all_cards }}">
     <br />
     <form method="POST"> 
       <div class="row justify-content-center">
-      <button class="btn btn-primary cardset-btn" type="submit" name="form-name" value="shuffle-btn">Shuffle!</button>
+      <button class="btn btn-primary cardset-btn header-btn" type="submit" name="form-name" value="shuffle-btn">Shuffle!</button>
+      <button class="btn btn-primary cardset-btn header-btn" type="submit" name="form-name" value="bubble-btn" style="margin-left: 5px;">Bubble Sort!</button>
       </div>
     </form> 
     <div class="row cardset-row">

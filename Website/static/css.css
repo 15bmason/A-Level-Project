@@ -329,3 +329,7 @@ p {
   height: 30px;
   border-radius: 0%;
 }
+
+.header-btn{
+  width: 125px;
+}

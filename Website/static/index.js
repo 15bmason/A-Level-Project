@@ -41,11 +41,6 @@ function show_pwd_signup(){
     }
   }
 
-function number_shown(){
-  var x = document.getElementById("")
-  window.location.href("/")
-}
-
 $('.flip-card .flip-card-inner').click(function() {
   $(this).closest('.flip-card').toggleClass('hover');
   $(this).css('transform, rotateY(180deg)');
@@ -92,3 +87,5 @@ let answer = document.getElementById("answer_text" + index).textContent;
 document.getElementById("modal_question").innerHTML = question;
 document.getElementById("modal_answer").innerHTML = answer;
 });
+
+console.log(document.querySelector('meta[name="my_data"]').content);
